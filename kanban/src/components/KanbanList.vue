@@ -13,10 +13,13 @@
 <script lang="ts">
 export default {
     methods: {
-        onDrop(evt, list) {
-            const itemID = evt.dataTransfer.getData('itemID')
-            const item = this.items.find((item) => item.name == itemID)
-            item.list = list
+        onDrop(evt:DragEvent, list:string) {
+            if (evt.dataTransfer) {
+                const itemID = evt.dataTransfer.getData('itemID')
+                const item = this.items.find((item) => item.name == itemID)
+                if (item)
+                    item.list = list
+            }
         },
     },
     computed: {

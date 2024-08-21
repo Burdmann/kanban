@@ -9,10 +9,12 @@
 <script lang="ts">
 export default {
 methods: {
-    startDrag(evt) {
-      evt.dataTransfer.dropEffect = 'move'
-      evt.dataTransfer.effectAllowed = 'move'
-      evt.dataTransfer.setData('itemID', this.name)
+    startDrag(evt:DragEvent) {
+        if (evt.dataTransfer) {
+            evt.dataTransfer.dropEffect = 'move'
+            evt.dataTransfer.effectAllowed = 'move'
+            evt.dataTransfer.setData('itemID', this.name)
+        }
     },
   },
 }

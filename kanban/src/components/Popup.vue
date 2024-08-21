@@ -16,7 +16,7 @@
 <template>
     <div v-show="show" class="modal" ref="modal">
         <slot ref="content"></slot>
-        <button @click="$emit('close')">close </button>
+        <button @click="$emit('close')">Close</button>
     </div>
 </template>
 

@@ -7,10 +7,10 @@
 export default {
     data() {
         return {
-            lists: ["Test","Test2"],
+            lists: ["To do","Doing","Done"],
             items: [
-                {name: "name", desc: "...", list:"Test"},
-                {name: "other name", desc: "...", list:"Test2"}
+                {name: "name", desc: "...", list:"To do"},
+                {name: "other name", desc: "This one has a really long description. This means I can see what happens when it has to use multiple lines :).", list:"To do"}
             ],
             popupVisible: false,
             newList: ""
@@ -18,8 +18,10 @@ export default {
     },
     methods: {
         addList() {
-            this.lists.push(this.newList)
+            const newList = this.newList
             this.newList = ""
+            if (this.lists.includes(newList)) return // don't add lists with the same name as a previous list
+            this.lists.push(newList)
         }
     }
     };

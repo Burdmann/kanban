@@ -23,9 +23,11 @@ export default {
             }
         },
         addItem() {
-            this.items.push({name: this.newItem.name, desc: this.newItem.desc, list: this.name})
+            const newItem = {name: this.newItem.name, desc: this.newItem.desc, list: this.name}
             this.newItem.name = ""
             this.newItem.desc = ""
+            if (this.items.find(item => item.name == newItem.name)) return // don't add items with the same name as a previous item
+            this.items.push({name: this.newItem.name, desc: this.newItem.desc, list: this.name})
         }
     },
     computed: {
@@ -45,10 +47,10 @@ export default {
 <template>
     <div class="kanban-list" @drop="onDrop($event, name)" @dragover.prevent @dragenter.prevent>
         <h2 style="font-weight: bold; text-align: center;">{{name}}</h2>
-        <!-- <div v-for="item in items" class="kanban-item" :key="item">{{ item }}</div> -->
+        <KanbanItem name="" desc="" style="display: hidden;"></KanbanItem>
         <KanbanItem v-for="item in getList" :name="item.name" :desc="item.desc" :key="item.name"></KanbanItem>
         <button class="add-item" v-show="popupVisible==false" @click="popupVisible=true">+</button>
-        <Popup :show="popupVisible" @close="popupVisible=false; newItem.name=''; newItem.desc=''">
+        <Popup class="add-item" :show="popupVisible" @close="popupVisible=false; newItem.name=''; newItem.desc=''">
             <div>
                 <input v-model="newItem.name" placeholder="name...">
                 <input v-model="newItem.desc" placeholder="description...">
@@ -64,9 +66,13 @@ export default {
         
         display: flex;
         width: auto;
-        justify-content: space-around;
+        justify-content: start;
         flex-direction: column;
         margin: 20px;
+    }
+
+    .add-item {
+        margin-top: auto
     }
 
 </style>

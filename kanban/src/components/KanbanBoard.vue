@@ -31,18 +31,17 @@ export default {
     <div class="kanban-board">
         <KanbanList v-for="list in lists" :items="items" :name="list" :key="list"></KanbanList>
         <button class="add-list" v-show="popupVisible==false" @click="popupVisible=true">+</button>
-        <Popup :show="popupVisible" @close="popupVisible=false; newList=''">
-            <div>
-                <input v-model="newList" placeholder="name...">
-                <button @click="addList()">Add</button>
-            </div>
+        <Popup :show="popupVisible" @close="popupVisible=false; newList=''" style="margin: 20px;">
+            <input v-model="newList" placeholder="name...">
+            <button @click="addList()">Add</button>
         </Popup>
     </div>
 </template>
 
-<style>
+<style scoped>
     .kanban-board {
-        background-color: lightgray;
+        background-color: #fff9f3;
+        color: #381010;
         
         display: flex;
 
@@ -53,5 +52,9 @@ export default {
     .add-list {
         font-weight: bold;
         font-size: x-large;
+        color: #381010;
+        background-color: #fff9f3;
+        outline: none;
+        margin: 20px;
     }
 </style>

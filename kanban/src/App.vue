@@ -45,3 +45,10 @@ header {
   }
 }
 </style>
+
+<style>
+  button {
+    background-color: #fff9f3;
+    border: 1px solid #381010;
+  }
+</style>

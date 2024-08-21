@@ -50,19 +50,17 @@ export default {
         <KanbanItem name="" desc="" style="display: hidden;"></KanbanItem>
         <KanbanItem v-for="item in getList" :name="item.name" :desc="item.desc" :key="item.name"></KanbanItem>
         <button class="add-item" v-show="popupVisible==false" @click="popupVisible=true">+</button>
-        <Popup class="add-item" :show="popupVisible" @close="popupVisible=false; newItem.name=''; newItem.desc=''">
-            <div>
-                <input v-model="newItem.name" placeholder="name...">
-                <input v-model="newItem.desc" placeholder="description...">
-                <button @click="addItem()">Add</button>
-            </div>
+        <Popup class="add-item" :show="popupVisible" @close="popupVisible=false; newItem.name=''; newItem.desc=''" style="margin:10px;">
+            <input v-model="newItem.name" placeholder="name...">
+            <input v-model="newItem.desc" placeholder="description...">
+            <button @click="addItem()">Add</button>
         </Popup>
     </div>
 </template>
 
-<style>
+<style scoped>
     .kanban-list {
-        background-color: white;
+        background-color: #fff9f3;
         
         display: flex;
         width: auto;
@@ -70,11 +68,12 @@ export default {
         flex-direction: column;
         margin: 20px;
 
-        outline: 1px solid black;
+        outline: 1px solid #381010;
     }
 
     .add-item {
-        margin-top: auto
+        margin-top: auto;
+        margin: 10px;
     }
 
 </style>

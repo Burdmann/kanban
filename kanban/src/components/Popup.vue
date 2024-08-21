@@ -20,11 +20,11 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .modal {
-        background-color: orange;
-        /* position: fixed;
-        z-index: 1;
-        overflow: auto; */
+        background-color: #fff9f3;
+
+        display: flex;
+        flex-direction: column;
     }
 </style>

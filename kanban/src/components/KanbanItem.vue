@@ -29,20 +29,20 @@ methods: {
     </div>
 </template>
 
-<style>
+<style scoped>
 
     .item-name {
         font-weight: bold;
-        background-color: white;
+        background-color: #fff9f3;
         text-align: center;
         text-decoration: underline;
     }
     .item-desc {
-        background-color: white;
+        background-color: #fff9f3;
         font-style: italic;
     }
     .kanban-item {
-        outline: 1px solid lightgray;
+        outline: 1px solid #f2b8b4;
         margin: 10px;
         width: 200px;
     }

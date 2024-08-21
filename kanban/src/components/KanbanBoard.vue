@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-    <div class="board">
+    <div class="kanban-board">
         <KanbanList v-for="list in lists" :items="items" :name="list" :key="list"></KanbanList>
         <button class="add-list" v-show="popupVisible==false" @click="popupVisible=true">+</button>
         <Popup :show="popupVisible" @close="popupVisible=false; newList=''">
@@ -41,8 +41,8 @@ export default {
 </template>
 
 <style>
-    .board {
-        background-color: red;
+    .kanban-board {
+        background-color: lightgray;
         
         display: flex;
 

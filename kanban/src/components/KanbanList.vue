@@ -62,13 +62,15 @@ export default {
 
 <style>
     .kanban-list {
-        background-color: blue;
+        background-color: white;
         
         display: flex;
         width: auto;
         justify-content: start;
         flex-direction: column;
         margin: 20px;
+
+        outline: 1px solid black;
     }
 
     .add-item {

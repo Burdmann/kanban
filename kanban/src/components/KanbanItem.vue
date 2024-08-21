@@ -33,15 +33,16 @@ methods: {
 
     .item-name {
         font-weight: bold;
-        background-color: green;
+        background-color: white;
         text-align: center;
         text-decoration: underline;
     }
     .item-desc {
-        background-color: green;
+        background-color: white;
         font-style: italic;
     }
     .kanban-item {
+        outline: 1px solid lightgray;
         margin: 10px;
         width: 200px;
     }

@@ -31,7 +31,7 @@ export default {
         <button class="add-list" v-show="popupVisible==false" @click="popupVisible=true">+</button>
         <Popup :show="popupVisible" @close="popupVisible=false; newList=''">
             <div>
-                <input v-model="newList" id="list-name">
+                <input v-model="newList" placeholder="name...">
                 <button @click="addList()">Add</button>
             </div>
         </Popup>

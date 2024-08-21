@@ -16,7 +16,7 @@ methods: {
             evt.dataTransfer.setData('itemID', this.name)
         }
     },
-  },
+  }
 }
 </script>
 

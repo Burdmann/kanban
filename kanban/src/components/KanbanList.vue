@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import KanbanItem from './KanbanItem.vue'
+    import Popup from './Popup.vue'
     const props = defineProps<{
         name: string
         items: {
@@ -21,12 +22,23 @@ export default {
                     item.list = list
             }
         },
+        addItem() {
+            this.items.push({name: this.newItem.name, desc: this.newItem.desc, list: this.name})
+            this.newItem.name = ""
+            this.newItem.desc = ""
+        }
     },
     computed: {
     getList() {
       return this.items.filter((item) => item.list === this.name)
     },
   },
+  data() {
+    return {
+        popupVisible: false,
+        newItem: {name: "", desc: ""}
+    }
+}
 }
 </script>
 
@@ -35,6 +47,14 @@ export default {
         <h2 style="font-weight: bold; text-align: center;">{{name}}</h2>
         <!-- <div v-for="item in items" class="kanban-item" :key="item">{{ item }}</div> -->
         <KanbanItem v-for="item in getList" :name="item.name" :desc="item.desc" :key="item.name"></KanbanItem>
+        <button class="add-item" v-show="popupVisible==false" @click="popupVisible=true">+</button>
+        <Popup :show="popupVisible" @close="popupVisible=false; newItem.name=''; newItem.desc=''">
+            <div>
+                <input v-model="newItem.name" placeholder="name...">
+                <input v-model="newItem.desc" placeholder="description...">
+                <button @click="addItem()">Add</button>
+            </div>
+        </Popup>
     </div>
 </template>
 

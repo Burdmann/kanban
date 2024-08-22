@@ -27,7 +27,7 @@ export default {
             this.newItem.name = ""
             this.newItem.desc = ""
             if (this.items.find(item => item.name == newItem.name)) return // don't add items with the same name as a previous item
-            this.items.push({name: this.newItem.name, desc: this.newItem.desc, list: this.name})
+            this.items.push({name: newItem.name, desc: newItem.desc, list: this.name})
         }
     },
     computed: {

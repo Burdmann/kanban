@@ -10,11 +10,7 @@
 </script>
 
 <script lang="ts">
-import Popup from './Popup.vue';
 export default {
-components: {
-    Popup
-},
 computed: {
     getList() {
       return this.items.filter((item) => item.list === this.name)
@@ -31,7 +27,6 @@ computed: {
     },
     addItem() {
         const newItem = {name: this.newItem.name, desc: this.newItem.desc, list: this.name}
-        console.log(newItem)
         this.newItem.name = ""
         this.newItem.desc = ""
         if (this.items.find(item => item.name == newItem.name)) return // don't add items with the same name as a previous item
